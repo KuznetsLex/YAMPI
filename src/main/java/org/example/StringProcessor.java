@@ -33,4 +33,11 @@ public class StringProcessor {
         s = s.replace("3", "три");
         return s;
     }
+
+    public static StringBuilder deleteEverySecond(StringBuilder s) {
+        for (int i = 1; i < s.length(); i++) {
+            s.deleteCharAt(i);
+        }
+        return s;
+    }
 }
