@@ -1,4 +1,4 @@
-package org.example;
+package org.Lab2;
 
 public class StringProcessor {
 
