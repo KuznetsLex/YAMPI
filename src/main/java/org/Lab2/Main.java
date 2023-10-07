@@ -1,15 +1,31 @@
 package org.Lab2;
 public class Main {
-    public static void main(String[] args){
+    public static void main(String[] args) throws Exception {
 //        Работа со строками
+
         /*
         String s1 = "ало ";
         System.out.println(StringProcessor.copy(s1,3));
+        try {
+            System.out.println(StringProcessor.copy(s1,-3));
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+            System.out.println("Exeption was catched. Continue...\n");
+        }
         System.out.println(StringProcessor.insertionsCount("abaa", "aa"));
+        try {
+            System.out.println(StringProcessor.insertionsCount("abaa", ""));
+            System.out.println(StringProcessor.insertionsCount("abaa", null));
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+            System.out.println("Exeption was catched. Continue...\n");
+        }
+
         String s2 = "1 баран, 2 барана, 3 барана, 4 барана";
         System.out.println(StringProcessor.numbersToText(s2));
         StringBuilder s3 = new StringBuilder("123456789");
         System.out.println(StringProcessor.deleteEverySecond(s3));
+
          */
 
 //        Массивы объектов

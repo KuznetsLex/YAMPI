@@ -2,7 +2,10 @@ package org.Lab2;
 
 public class StringProcessor {
 
-    public static String copy(String s, int N) {
+    public static String copy(String s, int N) throws Exception{
+        if (N < 0) {
+            throw new Exception("ERROR: Can't multiply string by negative number!");
+        }
         String s_copied = "";
         for (int i = 0; i < N; i++) {
             s_copied += s;
@@ -10,7 +13,10 @@ public class StringProcessor {
         return s_copied;
     }
 
-    public static int insertionsCount(String s1, String s2) {
+    public static int insertionsCount(String s1, String s2) throws IllegalArgumentException {
+        if (s2 == "" || s2 == null) {
+            throw new IllegalArgumentException("ERROR: Substring can't be null or empty!");
+        }
         boolean isInside;
         int insertionsCount = 0;
         for (int i = 0; i < s1.length() - s2.length() + 1; i++) {
