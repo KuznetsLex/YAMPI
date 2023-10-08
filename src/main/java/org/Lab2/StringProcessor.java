@@ -2,9 +2,9 @@ package org.Lab2;
 
 public class StringProcessor {
 
-    public static String copy(String s, int N) throws Exception{
+    public static String copy(String s, int N) throws IllegalArgumentException{
         if (N < 0) {
-            throw new Exception("ERROR: Can't multiply string by negative number!");
+            throw new IllegalArgumentException("ERROR: Can't multiply string by negative number!");
         }
         String s_copied = "";
         for (int i = 0; i < N; i++) {

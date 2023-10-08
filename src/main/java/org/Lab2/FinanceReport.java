@@ -1,4 +1,8 @@
 package org.Lab2;
+
+import java.util.Arrays;
+import java.util.Objects;
+
 public class FinanceReport {
     final private Payment[] paymentsArray;
     final private String authorName;
@@ -33,6 +37,21 @@ public class FinanceReport {
 
     public Payment getPayment(int paymentIndex) {
         return paymentsArray[paymentIndex];
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        FinanceReport that = (FinanceReport) o;
+        return Arrays.equals(paymentsArray, that.paymentsArray) && Objects.equals(authorName, that.authorName) && Objects.equals(creationDate, that.creationDate);
+    }
+
+    @Override
+    public int hashCode() {
+        int result = Objects.hash(authorName, creationDate);
+        result = 31 * result + Arrays.hashCode(paymentsArray);
+        return result;
     }
 
     @Override
