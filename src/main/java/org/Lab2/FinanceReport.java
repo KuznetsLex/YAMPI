@@ -4,25 +4,34 @@ import java.util.Arrays;
 import java.util.Objects;
 
 public class FinanceReport {
-    final private Payment[] paymentsArray;
+    private final Payment[] paymentsArray;
     final private String authorName;
-    final private String creationDate; //число, месяц, год
+    private final int paymentDay;
+    private final int paymentMonth;
+    private final int paymentYear;
 
-    public FinanceReport(Payment[] paymentsArray, String authorName, String creationDate) {
+
+    public FinanceReport(Payment[] paymentsArray, String authorName, int paymentDay, int paymentMonth, int paymentYear) throws IllegalArgumentException {
+        if (paymentMonth > 12) { throw new IllegalArgumentException("There are only 12 months in a year"); }
+        if (paymentDay > 31) { throw new IllegalArgumentException("There are 28-31 days in a month"); }
         this.paymentsArray = paymentsArray;
         this.authorName = authorName;
-        this.creationDate = creationDate;
+        this.paymentDay = paymentDay;
+        this.paymentMonth = paymentMonth;
+        this.paymentYear = paymentYear;
     }
 
     public FinanceReport(FinanceReport report) {
         int i = 0;
         this.paymentsArray = new Payment[report.getPaymentQuantity()];
         for (Payment item : report.paymentsArray) {
-            this.paymentsArray[i] = new Payment(item.getName(), item.getPaymentDate(), item.getPaymentAmount());
+            this.paymentsArray[i] = new Payment(item.getName(), item.getPaymentDay(), item.getPaymentMonth(), item.getPaymentYear(), item.getPaymentAmount());
             i++;
         }
         authorName = report.authorName;
-        creationDate = report.creationDate;
+        paymentDay = report.paymentDay;
+        paymentMonth = report.paymentMonth;
+        paymentYear = report.paymentYear;
     }
 
     public int getPaymentQuantity() {
@@ -31,7 +40,9 @@ public class FinanceReport {
 
     public void setPayment(int paymentIndex, Payment payment) {
         paymentsArray[paymentIndex].setName(payment.getName());
-        paymentsArray[paymentIndex].setPaymentDate(payment.getPaymentDate());
+        paymentsArray[paymentIndex].setPaymentDay(payment.getPaymentDay());
+        paymentsArray[paymentIndex].setPaymentMonth(payment.getPaymentMonth());
+        paymentsArray[paymentIndex].setPaymentYear(payment.getPaymentYear());
         paymentsArray[paymentIndex].setPaymentAmount(payment.getPaymentAmount());
     }
 
@@ -44,22 +55,22 @@ public class FinanceReport {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         FinanceReport that = (FinanceReport) o;
-        return Arrays.equals(paymentsArray, that.paymentsArray) && Objects.equals(authorName, that.authorName) && Objects.equals(creationDate, that.creationDate);
+        return paymentDay == that.paymentDay && paymentMonth == that.paymentMonth && paymentYear == that.paymentYear && Arrays.equals(paymentsArray, that.paymentsArray) && Objects.equals(authorName, that.authorName);
     }
 
     @Override
     public int hashCode() {
-        int result = Objects.hash(authorName, creationDate);
+        int result = Objects.hash(authorName, paymentDay, paymentMonth, paymentYear);
         result = 31 * result + Arrays.hashCode(paymentsArray);
         return result;
     }
 
     @Override
     public String toString() {
-        String report = String.format("Автор: %s, дата: %s, Платежи: \n", authorName, creationDate);
+        String report = String.format("Автор: %s, дата: %d.%d.%d, Платежи: \n", authorName, paymentDay, paymentMonth, paymentYear);
         for (Payment item : paymentsArray) {
-            report += String.format("Плательщик: %s, дата: %s, сумма: %.0f руб. %.0f коп.\n",
-                    item.getName(), item.getPaymentDate(), Math.floor(item.getPaymentAmount()),item.getPaymentAmount()%1*100);
+            report += String.format("\tПлательщик: %s, дата: %d.%d.%d, сумма: %d руб. %d коп.\n",
+                    item.getName(), item.getPaymentDay(), item.getPaymentMonth(), item.getPaymentYear(), item.getPaymentAmount()/100,item.getPaymentAmount()%100);
         }
         return report;
     }

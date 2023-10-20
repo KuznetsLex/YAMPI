@@ -3,7 +3,9 @@ package org.Lab2;
 import java.util.Arrays;
 
 public class FinanceReportProcessor {
-    static FinanceReport surnameSearch(FinanceReport report, char surnameChar, String authorName, String creationDate) {
+    static FinanceReport surnameSearch(FinanceReport report, char surnameChar, String authorName,  int creationDay, int creationMonth, int creationYear) throws IllegalArgumentException {
+        if (creationMonth > 12) { throw new IllegalArgumentException("There are only 12 months in a year"); }
+        if (creationDay > 31) { throw new IllegalArgumentException("There are 28-31 days in a month"); }
         Payment[] surnamePaymentsArrayFull = new Payment[report.getPaymentQuantity()];
         int j = 0;
         for (int i = 0; i < report.getPaymentQuantity(); i++) {
@@ -13,10 +15,12 @@ public class FinanceReportProcessor {
             }
         }
         Payment[] surnamePaymentsArrayCut = Arrays.copyOfRange(surnamePaymentsArrayFull, 0, j);
-        return new FinanceReport(surnamePaymentsArrayCut,authorName, creationDate);
+        return new FinanceReport(surnamePaymentsArrayCut, authorName, creationDay, creationMonth, creationYear);
     }
 
-    static FinanceReport getLittlePayments(FinanceReport report, double minPaymentAmount, String authorName, String creationDate) {
+    static FinanceReport getLittlePayments(FinanceReport report, int minPaymentAmount, String authorName, int creationDay, int creationMonth, int creationYear) throws IllegalArgumentException {
+        if (creationMonth > 12) { throw new IllegalArgumentException("There are only 12 months in a year"); }
+        if (creationDay > 31) { throw new IllegalArgumentException("There are 28-31 days in a month"); }
         Payment[] lessThenMinPaymentsArrayFull = new Payment[report.getPaymentQuantity()];
         int j = 0;
         for (int i = 0; i < report.getPaymentQuantity(); i++) {
@@ -26,6 +30,6 @@ public class FinanceReportProcessor {
             }
         }
         Payment[] lessThenMinPaymentsArrayCut = Arrays.copyOfRange(lessThenMinPaymentsArrayFull, 0, j);
-        return new FinanceReport(lessThenMinPaymentsArrayCut,authorName, creationDate);
+        return new FinanceReport(lessThenMinPaymentsArrayCut,authorName, creationDay, creationMonth, creationYear);
     }
 }
