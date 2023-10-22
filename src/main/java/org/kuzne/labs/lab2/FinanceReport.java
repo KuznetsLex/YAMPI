@@ -1,11 +1,11 @@
-package org.Lab2;
+package org.kuzne.labs.lab2;
 
 import java.util.Arrays;
 import java.util.Objects;
 
 public class FinanceReport {
     private final Payment[] paymentsArray;
-    final private String authorName;
+    private final String authorName;
     private final int paymentDay;
     private final int paymentMonth;
     private final int paymentYear;

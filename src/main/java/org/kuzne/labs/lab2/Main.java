@@ -1,4 +1,4 @@
-package org.Lab2;
+package org.kuzne.labs.lab2;
 public class Main {
     public static void main(String[] args) throws Exception {
 //        Работа со строками
@@ -42,5 +42,6 @@ public class Main {
         System.out.println(FinanceReportProcessor.getLittlePayments(report2, 8888, "Alexey Minimum", 7,10,2023));
     }
 }
+
 
 

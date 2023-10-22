@@ -1,4 +1,4 @@
-package org.Lab2;
+package org.kuzne.labs.lab2;
 
 import java.util.Arrays;
 
