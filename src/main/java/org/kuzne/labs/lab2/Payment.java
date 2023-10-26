@@ -53,12 +53,10 @@ class Payment {
     }
 
     public void setPaymentDay(int paymentDay) throws IllegalArgumentException {
-        if (paymentDay > 31) { throw new IllegalArgumentException("There are 28-31 days in a month"); }
         this.paymentDay = paymentDay;
     }
 
     public void setPaymentMonth(int paymentMonth) throws IllegalArgumentException{
-        if (paymentMonth > 12) { throw new IllegalArgumentException("There are only 12 months in a year"); }
         this.paymentMonth = paymentMonth;
     }
 
