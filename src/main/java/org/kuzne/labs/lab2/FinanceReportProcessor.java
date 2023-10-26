@@ -2,7 +2,7 @@ package org.kuzne.labs.lab2;
 
 import java.util.Arrays;
 
-public class FinanceReportProcessor {
+class FinanceReportProcessor {
     static FinanceReport surnameSearch(FinanceReport report, char surnameChar, String authorName,  int creationDay, int creationMonth, int creationYear) throws IllegalArgumentException {
         if (creationMonth > 12) { throw new IllegalArgumentException("There are only 12 months in a year"); }
         if (creationDay > 31) { throw new IllegalArgumentException("There are 28-31 days in a month"); }

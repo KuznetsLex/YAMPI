@@ -1,7 +1,8 @@
 package org.kuzne.labs.lab2;
-public class Main {
+class Main {
     public static void main(String[] args) throws Exception {
 //        Работа со строками
+
         String s1 = "ало ";
         System.out.println(StringProcessor.copy(s1,3));
         try {

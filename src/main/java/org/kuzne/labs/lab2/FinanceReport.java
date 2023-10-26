@@ -3,7 +3,7 @@ package org.kuzne.labs.lab2;
 import java.util.Arrays;
 import java.util.Objects;
 
-public class FinanceReport {
+class FinanceReport {
     private final Payment[] paymentsArray;
     private final String authorName;
     private final int paymentDay;
@@ -14,7 +14,13 @@ public class FinanceReport {
     public FinanceReport(Payment[] paymentsArray, String authorName, int paymentDay, int paymentMonth, int paymentYear) throws IllegalArgumentException {
         if (paymentMonth > 12) { throw new IllegalArgumentException("There are only 12 months in a year"); }
         if (paymentDay > 31) { throw new IllegalArgumentException("There are 28-31 days in a month"); }
-        this.paymentsArray = paymentsArray;
+        // достаточно ли вместо следующего кода было написать this.paymentsArray = paymentsArray
+        this.paymentsArray = new Payment[paymentsArray.length];
+        int i = 0;
+        for (Payment item : paymentsArray) {
+            this.paymentsArray[i] = new Payment(item);
+            i++;
+        }
         this.authorName = authorName;
         this.paymentDay = paymentDay;
         this.paymentMonth = paymentMonth;

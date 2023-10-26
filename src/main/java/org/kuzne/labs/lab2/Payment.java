@@ -2,7 +2,7 @@ package org.kuzne.labs.lab2;
 
 import java.util.Objects;
 
-public class Payment {
+class Payment {
     private String name;
     private int paymentDay;
     private int paymentMonth;
@@ -18,6 +18,14 @@ public class Payment {
         this.paymentMonth = paymentMonth;
         this.paymentYear = paymentYear;
         this.paymentAmount = paymentAmount;
+    }
+
+    public Payment(Payment payment) {
+        this.name = payment.getName();
+        this.paymentDay = payment.getPaymentDay();
+        this.paymentMonth = payment.getPaymentMonth();
+        this.paymentYear = payment.getPaymentYear();
+        this.paymentAmount = payment.getPaymentAmount();
     }
 
     public String getName() {

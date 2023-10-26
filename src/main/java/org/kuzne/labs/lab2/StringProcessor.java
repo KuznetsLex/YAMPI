@@ -1,6 +1,6 @@
 package org.kuzne.labs.lab2;
 
-public class StringProcessor {
+class StringProcessor {
 
     public static String copy(String s, int N) throws IllegalArgumentException{
         if (N < 0) {
