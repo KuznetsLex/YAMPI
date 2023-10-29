@@ -31,12 +31,12 @@ public class Main {
         System.out.println(filterWithoutNumbersString.apply("one"));
 
         ProductPackage web = new ProductPackage("Web", 0.02);
-        WeightProductsPacked packedOranges = new WeightProductsPacked("Oranges", "Oranges in web", 3.0, web);
+        WeightProductsPacked orangesPacked = new WeightProductsPacked("Oranges", "Oranges in web", 3.0, web);
         WeightProductsPacked bananasPacked = new WeightProductsPacked("Bananas8", "Yellow and long in web", 5.0, web);
-        ProductPackage wrapper = new ProductPackage("Wrapper", 0.05);
+        ProductPackage wrapper = new ProductPackage("Wrapper", 0.005);
         PieceProductsPacked picnic = new PieceProductsPacked("Picnic88", "Snack with waffles and nuts",0.12, 1, wrapper);
-        ProductPackage smallBox = new ProductPackage("SmallBox", 0.02);
-        MixedProductsPacked fruits = new MixedProductsPacked("Fruits", smallBox, packedOranges, bananasPacked);
+        ProductPackage smallBox = new ProductPackage("SmallBox", 0.2);
+        MixedProductsPacked fruits = new MixedProductsPacked("Fruits", smallBox, orangesPacked, bananasPacked);
         ProductBatch batch1 = new ProductBatch("Fruits and snacks", fruits, picnic);
         ProductBatch batch2 = new ProductBatch("Fruits", fruits);
         System.out.println(ProductService.countByFilter(batch1, filterLengthEightString));

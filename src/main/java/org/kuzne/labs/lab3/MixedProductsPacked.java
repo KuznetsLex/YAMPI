@@ -4,7 +4,6 @@ import java.util.Arrays;
 import java.util.Objects;
 
 public class MixedProductsPacked implements Packable{
-    // TODO: toString
     private final String name;
     private final ProductPackage productPackage;
     private final Packable[] products;
@@ -44,7 +43,7 @@ public class MixedProductsPacked implements Packable{
 
     @Override
     public String toString() {
-        return "MixedProductsPacked{" +
+        return '\n' + "MixedProductsPacked{" +
                 "name='" + name + '\'' +
                 ", productPackage=" + productPackage +
                 ", products=" + Arrays.toString(products) +

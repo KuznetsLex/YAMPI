@@ -20,12 +20,12 @@ public class PieceProductsPacked extends PieceProduct implements Packable{
 
     @Override
     public String toString() {
-        return "WeightProductPacked{" +
+        return  '\n' + "WeightProductPacked{" +
                 "name='" + super.getName() + '\'' +
                 ", description='" + super.getDescription() + '\'' +
-                ", pieceWeight='" + super.getSinglePieceWeight() + '\'' +
+                ", pieceWeight=" + super.getSinglePieceWeight() +
                 ", productQuantity=" + productQuantity +
-                ", productPackageName=" + productPackage.getName() +
+                ", productPackageName='" + productPackage.getName() + '\'' +
                 ", productPackageWeight=" + productPackage.getWeight() +
                 '}';
     }

@@ -1,10 +1,7 @@
 package org.kuzne.labs.lab3;
 
 import java.util.Arrays;
-import java.util.Iterator;
 import java.util.Objects;
-import java.util.Spliterator;
-import java.util.function.Consumer;
 
 public class ProductBatch {
     //TODO: toString

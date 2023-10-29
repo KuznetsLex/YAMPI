@@ -1,7 +1,7 @@
 package org.kuzne.labs.lab3;
 
 public class BeginStringFilter implements Filter {
-    private String pattern;
+    private final String pattern;
 
     public BeginStringFilter(String pattern) {
         this.pattern = pattern;

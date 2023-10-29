@@ -14,13 +14,7 @@ class FinanceReport {
     public FinanceReport(Payment[] paymentsArray, String authorName, int paymentDay, int paymentMonth, int paymentYear) throws IllegalArgumentException {
         if (paymentMonth > 12) { throw new IllegalArgumentException("There are only 12 months in a year"); }
         if (paymentDay > 31) { throw new IllegalArgumentException("There are 28-31 days in a month"); }
-        // достаточно ли вместо следующего кода было написать this.paymentsArray = paymentsArray
-        this.paymentsArray = new Payment[paymentsArray.length];
-        int i = 0;
-        for (Payment item : paymentsArray) {
-            this.paymentsArray[i] = new Payment(item);
-            i++;
-        }
+        this.paymentsArray = paymentsArray;
         this.authorName = authorName;
         this.paymentDay = paymentDay;
         this.paymentMonth = paymentMonth;
@@ -50,6 +44,10 @@ class FinanceReport {
         paymentsArray[paymentIndex].setPaymentMonth(payment.getPaymentMonth());
         paymentsArray[paymentIndex].setPaymentYear(payment.getPaymentYear());
         paymentsArray[paymentIndex].setPaymentAmount(payment.getPaymentAmount());
+    }
+
+    public Payment[] getPaymentsArray() {
+        return paymentsArray;
     }
 
     public Payment getPayment(int paymentIndex) {

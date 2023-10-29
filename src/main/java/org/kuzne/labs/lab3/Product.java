@@ -2,7 +2,7 @@ package org.kuzne.labs.lab3;
 
 import java.util.Objects;
 
-public class Product {
+public abstract class Product {
     private final String name;
     private final String description;
 
