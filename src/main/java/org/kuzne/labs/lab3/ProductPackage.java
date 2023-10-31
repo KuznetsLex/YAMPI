@@ -3,8 +3,8 @@ package org.kuzne.labs.lab3;
 import java.util.Objects;
 
 public class ProductPackage {
-    private final String name;
-    private final double weight;
+    private String name;
+    private double weight;
 
     public ProductPackage(String name, double weight) {
         this.name = name;
