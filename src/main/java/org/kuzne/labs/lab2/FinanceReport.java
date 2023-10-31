@@ -71,11 +71,11 @@ class FinanceReport {
 
     @Override
     public String toString() {
-        String report = String.format("Автор: %s, дата: %d.%d.%d, Платежи: \n", authorName, paymentDay, paymentMonth, paymentYear);
+        StringBuilder report = new StringBuilder(String.format("Автор: %s, дата: %d.%d.%d, Платежи: \n", authorName, paymentDay, paymentMonth, paymentYear));
         for (Payment item : paymentsArray) {
-            report += String.format("\tПлательщик: %s, дата: %d.%d.%d, сумма: %d руб. %d коп.\n",
-                    item.getName(), item.getPaymentDay(), item.getPaymentMonth(), item.getPaymentYear(), item.getPaymentAmount()/100,item.getPaymentAmount()%100);
+            report.append(String.format("\tПлательщик: %s, дата: %d.%d.%d, сумма: %d руб. %d коп.\n",
+                    item.getName(), item.getPaymentDay(), item.getPaymentMonth(), item.getPaymentYear(), item.getPaymentAmount() / 100, item.getPaymentAmount() % 100));
         }
-        return report;
+        return report.toString();
     }
 }

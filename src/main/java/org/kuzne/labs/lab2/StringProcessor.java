@@ -1,20 +1,22 @@
 package org.kuzne.labs.lab2;
 
+import java.util.Objects;
+
 class StringProcessor {
 
     public static String copy(String s, int N) throws IllegalArgumentException{
         if (N < 0) {
             throw new IllegalArgumentException("ERROR: Can't multiply string by negative number!");
         }
-        String s_copied = "";
+        StringBuilder s_copied = new StringBuilder();
         for (int i = 0; i < N; i++) {
-            s_copied += s;
+            s_copied.append(s);
         }
-        return s_copied;
+        return s_copied.toString();
     }
 
     public static int insertionsCount(String s1, String s2) throws IllegalArgumentException {
-        if (s2 == "" || s2 == null) {
+        if (Objects.equals(s2, "") || s2 == null) {
             throw new IllegalArgumentException("ERROR: Substring can't be null or empty!");
         }
         boolean isInside;
@@ -22,8 +24,9 @@ class StringProcessor {
         for (int i = 0; i < s1.length() - s2.length() + 1; i++) {
             isInside = true;
             for (int j = 0; j < s2.length(); j++) {
-                if (s1.charAt(i+j) != s2.charAt(j)) {
+                if (s1.charAt(i + j) != s2.charAt(j)) {
                     isInside = false;
+                    break;
                 }
             }
             if (isInside) {
