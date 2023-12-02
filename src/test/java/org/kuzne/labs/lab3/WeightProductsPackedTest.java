@@ -10,7 +10,8 @@ class WeightProductsPackedTest {
     @BeforeAll
     static void setUp() {
         ProductPackage web = new ProductPackage("Web", 0.02);
-        orangesPacked = new WeightProductsPacked("Oranges", "Oranges in web", 3.0, web);
+        WeightProduct oranges = new WeightProduct("Oranges", "Oranges in web");
+        orangesPacked = new WeightProductsPacked(oranges, 3.0, web);
     }
 
     @Test

@@ -1,11 +1,11 @@
 package org.kuzne.labs.lab3;
 
 public class PieceProductsPacked extends PieceProduct implements Packable{
-    private final double productQuantity;
+    private final int productQuantity;
     private final ProductPackage productPackage;
 
-    public PieceProductsPacked(String name, String description, double pieceWeight, double productQuantity, ProductPackage productPackage) {
-        super(name, description, pieceWeight);
+    public PieceProductsPacked(PieceProduct product, int productQuantity, ProductPackage productPackage) {
+        super(product.getName(), product.getDescription(), product.getSinglePieceWeight());
         this.productQuantity = productQuantity;
         this.productPackage = new ProductPackage(productPackage.getName(), productPackage.getWeight());
     }
@@ -32,7 +32,7 @@ public class PieceProductsPacked extends PieceProduct implements Packable{
 
     // Следует ли в следующих классах использовать геттеры?
     public double getNetWeight() {
-        return getProductQuantity() * super.getSinglePieceWeight();
+        return getProductQuantity() * getSinglePieceWeight();
     }
 
     public double getGrossWeight() {

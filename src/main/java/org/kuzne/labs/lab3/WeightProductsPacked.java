@@ -6,8 +6,8 @@ public class WeightProductsPacked extends WeightProduct implements Packable{
     private final double productAmount;
     private final ProductPackage productPackage;
 
-    public WeightProductsPacked(String name, String description, double productAmount, ProductPackage productPackage) {
-        super(name, description);
+    public WeightProductsPacked(WeightProduct product, double productAmount, ProductPackage productPackage) {
+        super(product.getName(), product.getDescription());
         this.productAmount = productAmount;
         this.productPackage = productPackage;
     }

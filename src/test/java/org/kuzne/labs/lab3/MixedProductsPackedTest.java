@@ -11,8 +11,10 @@ class MixedProductsPackedTest {
     @BeforeAll
     static void setUp() {
         ProductPackage web = new ProductPackage("Web", 0.02);
-        WeightProductsPacked orangesPacked = new WeightProductsPacked("Oranges", "Oranges in web", 3.0, web);
-        WeightProductsPacked bananasPacked = new WeightProductsPacked("Bananas", "Yellow and long in web", 5.0, web);
+        WeightProduct oranges = new WeightProduct("Oranges", "Oranges in web");
+        WeightProduct bananas = new WeightProduct("Bananas", "Yellow and long in web");
+        WeightProductsPacked orangesPacked = new WeightProductsPacked(oranges, 3.0, web);
+        WeightProductsPacked bananasPacked = new WeightProductsPacked(bananas, 5.0, web);
         //TODO: ЕСЛИ smallBox будет весить 0.2, то все сломается изза непредставимости числа
         ProductPackage smallBox = new ProductPackage("SmallBox", 0.3);
         fruits = new MixedProductsPacked("Fruits", smallBox, orangesPacked, bananasPacked);

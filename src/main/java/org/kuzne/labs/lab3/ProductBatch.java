@@ -4,7 +4,6 @@ import java.util.Arrays;
 import java.util.Objects;
 
 public class ProductBatch {
-    //TODO: toString
     private final String description;
     private final Packable[] products;
 

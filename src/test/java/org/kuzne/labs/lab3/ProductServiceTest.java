@@ -13,10 +13,13 @@ class ProductServiceTest {
     @BeforeAll
     static void setUp() {
         ProductPackage web = new ProductPackage("Web", 0.02);
-        WeightProductsPacked orangesPacked = new WeightProductsPacked("Oranges", "Oranges in web", 3.0, web);
-        WeightProductsPacked bananasPacked = new WeightProductsPacked("Bananas8", "Yellow and long in web", 5.0, web);
+        WeightProduct oranges = new WeightProduct("Oranges", "Oranges in web");
+        WeightProduct bananas = new WeightProduct("Bananas8", "Yellow and long in web");
+        WeightProductsPacked orangesPacked = new WeightProductsPacked(bananas, 3.0, web);
+        WeightProductsPacked bananasPacked = new WeightProductsPacked(oranges, 5.0, web);
         ProductPackage wrapper = new ProductPackage("Wrapper", 0.005);
-        PieceProductsPacked picnic = new PieceProductsPacked("Picnic88", "Snack with waffles and nuts",0.12, 1, wrapper);
+        PieceProduct barOfPicnic = new PieceProduct("Picnic88", "Snack with waffles and nuts",0.12);
+        PieceProductsPacked picnic = new PieceProductsPacked(barOfPicnic, 1, wrapper);
         ProductPackage smallBox = new ProductPackage("SmallBox", 0.2);
         MixedProductsPacked fruits = new MixedProductsPacked("Fruits", smallBox, orangesPacked, bananasPacked);
         batch1 = new ProductBatch("Fruits and snacks", fruits, picnic);

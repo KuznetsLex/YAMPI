@@ -10,7 +10,8 @@ class PieceProductsPackedTest {
     @BeforeAll
     static void setUp() {
         ProductPackage wrapper = new ProductPackage("Wrapper", 0.005);
-        picnic = new PieceProductsPacked("Picnic", "Snack with waffles and nuts",0.12, 2, wrapper);
+        PieceProduct barOfPicnic = new PieceProduct("Picnic", "Snack with waffles and nuts",0.12);
+        picnic = new PieceProductsPacked(barOfPicnic, 2, wrapper);
     }
 
     @Test
