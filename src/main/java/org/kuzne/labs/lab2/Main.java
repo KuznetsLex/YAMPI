@@ -1,4 +1,4 @@
-package org.Lab2;
+package org.kuzne.labs.lab2;
 public class Main {
     public static void main(String[] args) throws Exception {
 //        Работа со строками

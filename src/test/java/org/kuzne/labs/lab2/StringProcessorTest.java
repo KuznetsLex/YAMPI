@@ -1,4 +1,4 @@
-package org.Lab2;
+package org.kuzne.labs.lab2;
 
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
@@ -67,5 +67,35 @@ class StringProcessorTest {
     void deleteEverySecond_123456_135() {
         StringBuilder input = new StringBuilder("123456");
         assertEquals("135", StringProcessor.deleteEverySecond(input).toString());
+    }
+
+    @Test
+    void reverseString1() {
+        String input = "  aaa  bbb cc dd";
+        assertEquals("  dd  cc bbb aaa", StringProcessor.reverseString(input));
+    }
+
+    @Test
+    void reverseString2() {
+        String input = "aaa  bb cc ddd";
+        assertEquals("ddd  cc bb aaa", StringProcessor.reverseString(input));
+    }
+
+    @Test
+    void reverseString3() {
+        String input = "  aaa  bbb cc dd  ";
+        assertEquals("  dd  cc bbb aaa  ", StringProcessor.reverseString(input));
+    }
+
+    @Test
+    void hexToDecimal1() {
+        String input = "Васе 0x00000010 лет";
+        assertEquals("Васе 16 лет",StringProcessor.hexToDecimal(input));
+    }
+
+    @Test
+    void hexToDecimal2() {
+        String input = "Васе 0x00000010 лет, а Алексею - 0x00000013";
+        assertEquals("Васе 16 лет, а Алексею - 19",StringProcessor.hexToDecimal(input));
     }
 }

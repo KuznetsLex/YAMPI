@@ -1,4 +1,4 @@
-package org.Lab2;
+package org.kuzne.labs.lab2;
 
 import java.util.Arrays;
 import java.util.Objects;
@@ -49,6 +49,8 @@ public class FinanceReport {
     public Payment getPayment(int paymentIndex) {
         return paymentsArray[paymentIndex];
     }
+
+    public Payment[] getPaymentsArray() { return paymentsArray; }
 
     @Override
     public boolean equals(Object o) {
