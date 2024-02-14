@@ -1,4 +1,4 @@
-package org.kuzne.labs.lab5;
+package org.kuzne.labs.lab6;
 
 import java.util.ArrayList;
 
