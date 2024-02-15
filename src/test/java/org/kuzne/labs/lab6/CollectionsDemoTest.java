@@ -32,4 +32,44 @@ class CollectionsDemoTest {
         list.add(string4);
         assertEquals(2, CollectionsDemo.strFirstChar(list, 'S'));
     }
+
+    @Test
+    void setsWithoutIntersection_1() {
+    }
+
+    @Test
+    void peopleIdentifiersFilter_1() {
+    }
+
+    @Test
+    void identifiersOfPeople18Plus_1() {
+    }
+
+    @Test
+    void mapIdToAge_1() {
+    }
+
+    @Test
+    void mapAgeToPeople_1() {
+    }
+
+    @Test
+    void setsWithoutIntersection_2() {
+    }
+
+    @Test
+    void peopleIdentifiersFilter_2() {
+    }
+
+    @Test
+    void identifiersOfPeople18Plus_2() {
+    }
+
+    @Test
+    void mapIdToAge_2() {
+    }
+
+    @Test
+    void mapAgeToPeople_2() {
+    }
 }
