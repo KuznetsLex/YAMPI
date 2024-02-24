@@ -17,7 +17,7 @@ public class CollectionsDemo {
                                                                       HashSet<Integer> templateSet) {
         ArrayList<HashSet<Integer>> setWithoutIntersection = new ArrayList<>();
         for (HashSet<Integer> set : listOfSets) {
-            if (!set.retainAll(templateSet)) {
+            if (!set.removeAll(templateSet)) {
                 setWithoutIntersection.add(set);
             }
         }
@@ -37,7 +37,7 @@ public class CollectionsDemo {
     public static ArrayList<Integer> identifiersOfPeople18Plus(HashMap<Integer, Human> numbersToPeopleMap) {
         ArrayList<Integer> identifiersOfPeople18Plus = new ArrayList<>();
         for (Integer key : numbersToPeopleMap.keySet()) {
-            if (numbersToPeopleMap.get(key).getAge() > 18) {
+            if (numbersToPeopleMap.get(key).getAge() >= 18) {
                 identifiersOfPeople18Plus.add(key);
             }
         }
