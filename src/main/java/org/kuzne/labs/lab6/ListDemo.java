@@ -2,22 +2,25 @@ package org.kuzne.labs.lab6;
 
 import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
 
 public class ListDemo {
-    public static ArrayList<Human> sameSurnameFilter(ArrayList<Human> originList, Human template) {
-        ArrayList<Human> sameSurnameList = new ArrayList<>();
-        for (Human human: originList) {
-            if (human.getSurname().equals(template.getSurname()) || (human.getSurname()+"a").equals(template.getSurname())
-                                                                || human.getSurname().equals((template.getSurname()+"a"))) {
+    public static List<Human> sameSurnameFilter(List<Human> originList, Human template) {
+        List<Human> sameSurnameList = new ArrayList<>();
+        for (Human human : originList) {
+            if (human.getSurname().equals(template.getSurname())
+                    || (human.getSurname() + "a").equals(template.getSurname())
+                    || human.getSurname().equals((template.getSurname() + "a"))) {
                 sameSurnameList.add(human);
             }
         }
         return sameSurnameList;
-     }
+    }
 
-    public static ArrayList<Human> excludeFromList(ArrayList<Human> originList, Human template) {
-        ArrayList<Human> excludedTemplateList = new ArrayList<>();
-        for (Human human: originList) {
+    public static List<Human> excludeFromList(List<Human> originList, Human template) {
+        List<Human> excludedTemplateList = new ArrayList<>();
+        for (Human human : originList) {
             if (!human.equals(template)) {
                 excludedTemplateList.add(human);
             }
@@ -25,17 +28,17 @@ public class ListDemo {
         return excludedTemplateList;
     }
 
-    public static HashSet<Human> maxAge(ArrayList<Human> setOfPeople) {
-        HashSet<Human> maxAgeSet = new HashSet<>();
+    public static <T extends Human> Set<T> maxAge(List<T> setOfPeople) {
+        Set<T> maxAgeSet = new HashSet<>();
         int maxAge = 0;
-        for (Human human : setOfPeople) {
+        for (T human : setOfPeople) {
             if (human.getAge() > maxAge) {
-                maxAgeSet.clear();
-                maxAgeSet.add(human);
                 maxAge = human.getAge();
-            } else if (human.getAge() == maxAge) {
+            }
+        }
+        for (T human : setOfPeople) {
+            if (human.getAge() == maxAge) {
                 maxAgeSet.add(human);
-                maxAge = human.getAge();
             }
         }
         return maxAgeSet;

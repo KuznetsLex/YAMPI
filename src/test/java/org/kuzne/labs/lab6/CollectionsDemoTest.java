@@ -3,9 +3,7 @@ package org.kuzne.labs.lab6;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.HashSet;
+import java.util.*;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -53,27 +51,27 @@ class CollectionsDemoTest {
 
     @Test
     void setsWithoutIntersection_1() {
-        HashSet<Integer> templateSet = new HashSet<>();
+        Set<Integer> templateSet = new HashSet<>();
         templateSet.add(1);
         templateSet.add(2);
         templateSet.add(3);
-        HashSet<Integer> numberSet1 = new HashSet<>();
+        Set<Integer> numberSet1 = new HashSet<>();
         numberSet1.add(3);
         numberSet1.add(4);
         numberSet1.add(5);
-        HashSet<Integer> numberSet2 = new HashSet<>();
+        Set<Integer> numberSet2 = new HashSet<>();
         numberSet2.add(4);
         numberSet2.add(5);
         numberSet2.add(6);
-        HashSet<Integer> numberSet3 = new HashSet<>();
+        Set<Integer> numberSet3 = new HashSet<>();
         numberSet3.add(7);
         numberSet3.add(8);
         numberSet3.add(9);
-        ArrayList<HashSet<Integer>> listOfSets = new ArrayList<>();
+        List<Set<Integer>> listOfSets = new ArrayList<>();
         listOfSets.add(numberSet1);
         listOfSets.add(numberSet2);
         listOfSets.add(numberSet3);
-        ArrayList<HashSet<Integer>> expectedList = new ArrayList<>();
+        List<Set<Integer>> expectedList = new ArrayList<>();
         expectedList.add(numberSet2);
         expectedList.add(numberSet3);
         assertEquals(expectedList, CollectionsDemo.setsWithoutIntersection(listOfSets, templateSet));
@@ -97,26 +95,26 @@ class CollectionsDemoTest {
         numberSet3.add(7);
         numberSet3.add(8);
         numberSet3.add(9);
-        ArrayList<HashSet<Integer>> listOfSets = new ArrayList<>();
+        ArrayList<Set<Integer>> listOfSets = new ArrayList<>();
         listOfSets.add(numberSet1);
         listOfSets.add(numberSet2);
         listOfSets.add(numberSet3);
-        ArrayList<HashSet<Integer>> expectedList = new ArrayList<>();
+        ArrayList<Set<Integer>> expectedList = new ArrayList<>();
         expectedList.add(numberSet3);
         assertEquals(expectedList, CollectionsDemo.setsWithoutIntersection(listOfSets, templateSet));
     }
 
     @Test
     void setsWithoutIntersection_3() {
-        HashSet<Integer> templateSet = new HashSet<>();
-        HashSet<Integer> numberSet1 = new HashSet<>();
-        HashSet<Integer> numberSet2 = new HashSet<>();
-        HashSet<Integer> numberSet3 = new HashSet<>();
-        ArrayList<HashSet<Integer>> listOfSets = new ArrayList<>();
+        Set<Integer> templateSet = new HashSet<>();
+        Set<Integer> numberSet1 = new HashSet<>();
+        Set<Integer> numberSet2 = new HashSet<>();
+        Set<Integer> numberSet3 = new HashSet<>();
+        List<Set<Integer>> listOfSets = new ArrayList<>();
         listOfSets.add(numberSet1);
         listOfSets.add(numberSet2);
         listOfSets.add(numberSet3);
-        ArrayList<HashSet<Integer>> expectedList = new ArrayList<>();
+        List<Set<Integer>> expectedList = new ArrayList<>();
         expectedList.add(numberSet1);
         expectedList.add(numberSet2);
         expectedList.add(numberSet3);
@@ -125,10 +123,10 @@ class CollectionsDemoTest {
 
     @Test
     void peopleIdentifiersFilter_1() {
-        HashSet<Integer> idSet = new HashSet<>();
+        Set<Integer> idSet = new HashSet<>();
         idSet.add(0);
         idSet.add(2);
-        HashSet<Human> expectedSet = new HashSet<>();
+        Set<Human> expectedSet = new HashSet<>();
         expectedSet.add(human1);
         expectedSet.add(human3);
         assertEquals(expectedSet, CollectionsDemo.peopleIdentifiersFilter(idToPeopleMap, idSet));
@@ -136,12 +134,12 @@ class CollectionsDemoTest {
 
     @Test
     void peopleIdentifiersFilter_2() {
-        HashSet<Integer> idSet = new HashSet<>();
+        Set<Integer> idSet = new HashSet<>();
         idSet.add(0);
         idSet.add(1);
         idSet.add(2);
         idSet.add(3);
-        HashSet<Human> expectedSet = new HashSet<>();
+        Set<Human> expectedSet = new HashSet<>();
         expectedSet.add(human1);
         expectedSet.add(human2);
         expectedSet.add(human3);
@@ -151,14 +149,14 @@ class CollectionsDemoTest {
 
     @Test
     void peopleIdentifiersFilter_3() {
-        HashSet<Integer> idSet = new HashSet<>();
-        HashSet<Human> expectedSet = new HashSet<>();
+        Set<Integer> idSet = new HashSet<>();
+        Set<Human> expectedSet = new HashSet<>();
         assertEquals(expectedSet, CollectionsDemo.peopleIdentifiersFilter(idToPeopleMap, idSet));
     }
 
     @Test
     void identifiersOfPeople18Plus_1() {
-        ArrayList<Integer> expectedList= new ArrayList<>();
+        List<Integer> expectedList= new ArrayList<>();
         expectedList.add(0);
         expectedList.add(1);
         expectedList.add(3);
@@ -167,22 +165,22 @@ class CollectionsDemoTest {
 
     @Test
     void identifiersOfPeople18Plus_2() {
-        HashMap<Integer, Human> idToPeopleMap1 = new HashMap<>();
+        Map<Integer, Human> idToPeopleMap1 = new HashMap<>();
         idToPeopleMap1.put(0, human3);
-        ArrayList<Integer> expectedList= new ArrayList<>();
+        List<Integer> expectedList= new ArrayList<>();
         assertEquals(expectedList, CollectionsDemo.identifiersOfPeople18Plus(idToPeopleMap1));
     }
 
     @Test
     void identifiersOfPeople18Plus_3() {
-        HashMap<Integer, Human> idToPeopleMap2 = new HashMap<>();
-        ArrayList<Integer> expectedList= new ArrayList<>();
+        Map<Integer, Human> idToPeopleMap2 = new HashMap<>();
+        List<Integer> expectedList= new ArrayList<>();
         assertEquals(expectedList, CollectionsDemo.identifiersOfPeople18Plus(idToPeopleMap2));
     }
 
     @Test
     void mapIdToAge_1() {
-        HashMap<Integer, Integer> expectedMap = new HashMap<>();
+        Map<Integer, Integer> expectedMap = new HashMap<>();
         expectedMap.put(0,30);
         expectedMap.put(1,30);
         expectedMap.put(2,1);
@@ -192,36 +190,41 @@ class CollectionsDemoTest {
 
     @Test
     void mapIdToAge_2() {
-        HashMap<Integer, Human> idToPeopleMap1 = new HashMap<>();
+        Map<Integer, Human> idToPeopleMap1 = new HashMap<>();
         idToPeopleMap1.put(0, human3);
-        HashMap<Integer, Integer> expectedMap = new HashMap<>();
+        Map<Integer, Integer> expectedMap = new HashMap<>();
         expectedMap.put(0,1);
         assertEquals(expectedMap, CollectionsDemo.mapIdToAge(idToPeopleMap1));
     }
 
     @Test
     void mapIdToAge_3() {
-        HashMap<Integer, Human> idToPeopleMap2 = new HashMap<>();
-        HashMap<Integer, Integer> expectedMap = new HashMap<>();
+        Map<Integer, Human> idToPeopleMap2 = new HashMap<>();
+        Map<Integer, Integer> expectedMap = new HashMap<>();
         assertEquals(expectedMap, CollectionsDemo.mapIdToAge(idToPeopleMap2));
     }
 
     @Test
     void mapAgeToPeople_1() {
-        HashSet<Human> peopleSet = new HashSet<>();
+        human1 = new Human("Kuznetsov", "Alexey", "Borisovich",30);
+        human2 = new Human("Kuznetsova", "Ekaterina", "Maksimovna",30);
+        human3 = new Human("Kuznetsov", "Vaiboslav", "Alekseevich",1);
+        human4 = new Human("Derisheva", "Ekaterina", "Maksimovna",18);
+
+        Set<Human> peopleSet = new HashSet<>();
         peopleSet.add(human1);
         peopleSet.add(human2);
         peopleSet.add(human3);
         peopleSet.add(human4);
 
-        ArrayList<Human> listOf30 = new ArrayList<>();
+        List<Human> listOf30 = new ArrayList<>();
         listOf30.add(human1);
         listOf30.add(human2);
-        ArrayList<Human> listOf1 = new ArrayList<>();
+        List<Human> listOf1 = new ArrayList<>();
         listOf1.add(human3);
-        ArrayList<Human> listOf18 = new ArrayList<>();
+        List<Human> listOf18 = new ArrayList<>();
         listOf18.add(human4);
-        HashMap<Integer, ArrayList<Human>> expectedMap = new HashMap<>();
+        Map<Integer, List<Human>> expectedMap = new HashMap<>();
         expectedMap.put(30, listOf30);
         expectedMap.put(1, listOf1);
         expectedMap.put(18, listOf18);
@@ -230,8 +233,8 @@ class CollectionsDemoTest {
 
     @Test
     void mapAgeToPeople_2() {
-        HashSet<Human> peopleSet = new HashSet<>();
-        HashMap<Integer, ArrayList<Human>> expectedMap = new HashMap<>();
+        Set<Human> peopleSet = new HashSet<>();
+        Map<Integer, ArrayList<Human>> expectedMap = new HashMap<>();
         assertEquals(expectedMap, CollectionsDemo.mapAgeToPeople(peopleSet));
     }
 
