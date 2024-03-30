@@ -1,6 +1,8 @@
 package org.kuzne.labs.lab7;
 
 import java.io.*;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class IOStream {
     public static void writeArrayBin(int[] buf, OutputStream out) throws IOException {
@@ -60,5 +62,24 @@ public class IOStream {
     public static String[] fileExtensionFinder(String extension, String dir) {
         File currentDir = new File(dir);
         return currentDir.list(new ExtensionFilter(extension));
+    }
+
+    public static void fileAdvancedFinder(String regex, String dir, Writer in) throws IOException {
+        File currentDir = new File(dir);
+        findFiles(currentDir.listFiles(), regex, in);
+    }
+    public static void findFiles(File[] files,  String regex, Writer in) throws IOException {
+
+        for (File file : files) {
+            RegexFilter filter = new RegexFilter(regex);
+            if (filter.accept(file, file.getName())) {
+                in.write(file.getAbsolutePath());
+                in.write("\n");
+            }
+            if (file.isDirectory()) {
+                findFiles(file.listFiles(), regex, in);
+            }
+
+        }
     }
 }

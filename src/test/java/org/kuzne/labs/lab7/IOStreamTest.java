@@ -199,4 +199,10 @@ class IOStreamTest {
                 new String[]{"test.txt"},
                 IOStream.fileExtensionFinder(".txt", "src/main/java/org/kuzne/labs/lab6"));
     }
+
+    @Test
+    void fileAdvancedFinder_1() throws IOException {
+        Writer in = new FileWriter("src/main/java/org/kuzne/labs/lab7/regexFiles.txt");
+        IOStream.fileAdvancedFinder(".java", "src", in);
+    }
 }
