@@ -1,8 +1,10 @@
 /Users/test/Programming/JavaDevelopment/IdeaProjects/YAMPI/src/test/java/org/kuzne/labs/lab6/CollectionsDemoTest.java
 /Users/test/Programming/JavaDevelopment/IdeaProjects/YAMPI/src/test/java/org/kuzne/labs/lab6/ListDemoTest.java
 /Users/test/Programming/JavaDevelopment/IdeaProjects/YAMPI/src/test/java/org/kuzne/labs/lab7/HouseToCSVTest.java
+/Users/test/Programming/JavaDevelopment/IdeaProjects/YAMPI/src/test/java/org/kuzne/labs/lab7/HouseSerializerWithStreamingAPITest.java
 /Users/test/Programming/JavaDevelopment/IdeaProjects/YAMPI/src/test/java/org/kuzne/labs/lab7/IOStreamTest.java
 /Users/test/Programming/JavaDevelopment/IdeaProjects/YAMPI/src/test/java/org/kuzne/labs/lab7/HouseSerializerTest.java
+/Users/test/Programming/JavaDevelopment/IdeaProjects/YAMPI/src/test/java/org/kuzne/labs/lab7/JSONComparatorTest.java
 /Users/test/Programming/JavaDevelopment/IdeaProjects/YAMPI/src/test/java/org/kuzne/labs/lab2/ProfitDeclarationTest.java
 /Users/test/Programming/JavaDevelopment/IdeaProjects/YAMPI/src/test/java/org/kuzne/labs/lab2/StringProcessorTest.java
 /Users/test/Programming/JavaDevelopment/IdeaProjects/YAMPI/src/test/java/org/kuzne/labs/lab2/FinanceReportProcessorTest.java
@@ -25,12 +27,17 @@
 /Users/test/Programming/JavaDevelopment/IdeaProjects/YAMPI/src/main/java/org/kuzne/labs/lab6/ListDemo.java
 /Users/test/Programming/JavaDevelopment/IdeaProjects/YAMPI/src/main/java/org/kuzne/labs/lab6/Human.java
 /Users/test/Programming/JavaDevelopment/IdeaProjects/YAMPI/src/main/java/org/kuzne/labs/lab6/Student.java
+/Users/test/Programming/JavaDevelopment/IdeaProjects/YAMPI/src/main/java/org/kuzne/labs/lab7/PersonSerializerWithStreamingAPI.java
 /Users/test/Programming/JavaDevelopment/IdeaProjects/YAMPI/src/main/java/org/kuzne/labs/lab7/RegexFilter.java
 /Users/test/Programming/JavaDevelopment/IdeaProjects/YAMPI/src/main/java/org/kuzne/labs/lab7/ExtensionFilter.java
+/Users/test/Programming/JavaDevelopment/IdeaProjects/YAMPI/src/main/java/org/kuzne/labs/lab7/FlatSerializerWithStreamingAPI.java
 /Users/test/Programming/JavaDevelopment/IdeaProjects/YAMPI/src/main/java/org/kuzne/labs/lab7/HouseToCSV.java
 /Users/test/Programming/JavaDevelopment/IdeaProjects/YAMPI/src/main/java/org/kuzne/labs/lab7/Flat.java
 /Users/test/Programming/JavaDevelopment/IdeaProjects/YAMPI/src/main/java/org/kuzne/labs/lab7/HouseSerializerWithJackson.java
+/Users/test/Programming/JavaDevelopment/IdeaProjects/YAMPI/src/main/java/org/kuzne/labs/lab7/JSONComparator.java
 /Users/test/Programming/JavaDevelopment/IdeaProjects/YAMPI/src/main/java/org/kuzne/labs/lab7/Person.java
+/Users/test/Programming/JavaDevelopment/IdeaProjects/YAMPI/src/main/java/org/kuzne/labs/lab7/HouseSerializerWithStreamingAPI.java
+/Users/test/Programming/JavaDevelopment/IdeaProjects/YAMPI/src/main/java/org/kuzne/labs/lab7/Main.java
 /Users/test/Programming/JavaDevelopment/IdeaProjects/YAMPI/src/main/java/org/kuzne/labs/lab7/House.java
 /Users/test/Programming/JavaDevelopment/IdeaProjects/YAMPI/src/main/java/org/kuzne/labs/lab7/IOStream.java
 /Users/test/Programming/JavaDevelopment/IdeaProjects/YAMPI/src/main/java/org/kuzne/labs/lab7/HouseSerializer.java
@@ -63,4 +70,6 @@
 /Users/test/Programming/JavaDevelopment/IdeaProjects/YAMPI/src/main/java/org/kuzne/labs/lab4/function/SineFunction.java
 /Users/test/Programming/JavaDevelopment/IdeaProjects/YAMPI/src/main/java/org/kuzne/labs/lab4/function/RatioFunction.java
 /Users/test/Programming/JavaDevelopment/IdeaProjects/YAMPI/src/main/java/org/kuzne/labs/lab4/function/Function.java
-/Users/test/Programming/JavaDevelopment/IdeaProjects/YAMPI/src/main/java/org/kuzne/labs/lab4/function
+/Users/test/Programming/JavaDevelopment/IdeaProjects/YAMPI/src/main/java/org/kuzne/labs/lab4/functional/DefiniteIntegralFunctional.java
+/Users/test/Programming/JavaDevelopment/IdeaProjects/YAMPI/src/main/java/org/kuzne/labs/lab4/functional/SegmentFunctional.java
+/User

@@ -4,7 +4,7 @@ import java.io.*;
 import java.time.LocalDateTime;
 
 public class HouseSerializer {
-    public void serializeHouse(House house, String filename) throws IOException {
+    public static void serializeHouse(House house, String filename) throws IOException {
         try (ObjectOutput out = new ObjectOutputStream(
                 new BufferedOutputStream(
                         new FileOutputStream(filename))))
@@ -13,7 +13,7 @@ public class HouseSerializer {
         }
     }
 
-    public House deserializeHouse(String filename) throws IOException, ClassNotFoundException, ClassCastException {
+    public static House deserializeHouse(String filename) throws IOException, ClassNotFoundException, ClassCastException {
         try(ObjectInput in = new ObjectInputStream(
                 new BufferedInputStream(
                         new FileInputStream(filename))))

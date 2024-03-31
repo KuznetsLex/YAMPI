@@ -69,7 +69,6 @@ public class IOStream {
         findFiles(currentDir.listFiles(), regex, in);
     }
     public static void findFiles(File[] files,  String regex, Writer in) throws IOException {
-
         for (File file : files) {
             RegexFilter filter = new RegexFilter(regex);
             if (filter.accept(file, file.getName())) {
@@ -79,7 +78,6 @@ public class IOStream {
             if (file.isDirectory()) {
                 findFiles(file.listFiles(), regex, in);
             }
-
         }
     }
 }

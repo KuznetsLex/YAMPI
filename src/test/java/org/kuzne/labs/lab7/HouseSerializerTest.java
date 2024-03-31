@@ -50,8 +50,6 @@ class HouseSerializerTest {
         HouseSerializerWithJackson houseJacksonSerializer = new HouseSerializerWithJackson();
         houseJacksonSerializer.houseSerialize(house, "src/main/java/org/kuzne/labs/lab7/House.txt");
 
-        System.out.println( houseJacksonSerializer.houseDesirialize("src/main/java/org/kuzne/labs/lab7/House.txt").toString());
         assertEquals(house.toString(), houseJacksonSerializer.houseDesirialize("src/main/java/org/kuzne/labs/lab7/House.txt").toString());
-//        assertEquals(1, -1);
     }
 }

@@ -1,6 +1,7 @@
 package org.kuzne.labs.lab7;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 
 import java.io.Serializable;
 import java.util.ArrayList;

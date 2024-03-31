@@ -7,7 +7,7 @@ import java.nio.charset.StandardCharsets;
 
 
 public class HouseSerializerWithJackson {
-    public void houseSerialize(House house, String filename) throws IOException {
+    public static void houseSerialize(House house, String filename) throws IOException {
         Writer writer = new FileWriter(filename, StandardCharsets.UTF_8);
         ObjectMapper mapper= new ObjectMapper();
         mapper.writeValue(writer, house);
