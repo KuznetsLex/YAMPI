@@ -1,6 +1,9 @@
 package org.kuzne.labs.lab7;
 
 import java.io.*;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Set;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -64,18 +67,24 @@ public class IOStream {
         return currentDir.list(new ExtensionFilter(extension));
     }
 
-    public static void fileAdvancedFinder(String regex, String dir, Writer in) throws IOException {
+    public static void fileAdvancedFinder(String regex, String dir, List<String> in) throws IOException {
         File currentDir = new File(dir);
         findFiles(currentDir.listFiles(), regex, in);
     }
-    public static void findFiles(File[] files,  String regex, Writer in) throws IOException {
+    public static void findFiles(File[] files,  String regex, List<String> in) throws IOException {
         for (File file : files) {
             RegexFilter filter = new RegexFilter(regex);
             if (filter.accept(file, file.getName())) {
-                in.write(file.getAbsolutePath());
-                in.write("\n");
+                if (!in.contains(file.getAbsolutePath())) {
+                    in.add(file.getAbsolutePath());
+                }
             }
             if (file.isDirectory()) {
+                if (filter.accept(file, file.getName())) {
+                    if (!in.contains(file.getAbsolutePath())) {
+                        in.add(file.getAbsolutePath());
+                    }
+                }
                 findFiles(file.listFiles(), regex, in);
             }
         }

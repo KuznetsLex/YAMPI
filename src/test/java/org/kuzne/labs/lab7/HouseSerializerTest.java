@@ -25,9 +25,8 @@ class HouseSerializerTest {
         Collections.addAll(flats, flat1, flat2);
         House house = new House(644121, "Mira 55A", person1, flats);
 
-        HouseSerializer houseSerializer = new HouseSerializer();
-        houseSerializer.serializeHouse(house, "src/main/java/org/kuzne/labs/lab7/House.txt");
-        assertEquals(house, houseSerializer.deserializeHouse("src/main/java/org/kuzne/labs/lab7/House.txt"));
+        HouseSerializer.serializeHouse(house, "src/main/java/org/kuzne/labs/lab7/House.txt");
+        assertEquals(house, HouseSerializer.deserializeHouse("src/main/java/org/kuzne/labs/lab7/House.txt"));
     }
 
     @Test
@@ -48,7 +47,7 @@ class HouseSerializerTest {
 
 
         HouseSerializerWithJackson houseJacksonSerializer = new HouseSerializerWithJackson();
-        houseJacksonSerializer.houseSerialize(house, "src/main/java/org/kuzne/labs/lab7/House.txt");
+        HouseSerializerWithJackson.houseSerialize(house, "src/main/java/org/kuzne/labs/lab7/House.txt");
 
         assertEquals(house.toString(), houseJacksonSerializer.houseDesirialize("src/main/java/org/kuzne/labs/lab7/House.txt").toString());
     }

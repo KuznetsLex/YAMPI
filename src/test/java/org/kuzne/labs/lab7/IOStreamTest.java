@@ -1,7 +1,10 @@
 package org.kuzne.labs.lab7;
 
 import org.junit.jupiter.api.Test;
+import org.junit.platform.commons.util.CollectionUtils;
+
 import java.io.*;
+import java.util.*;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -202,7 +205,47 @@ class IOStreamTest {
 
     @Test
     void fileAdvancedFinder_1() throws IOException {
-        Writer in = new FileWriter("src/main/java/org/kuzne/labs/lab7/regexFiles.txt");
-        IOStream.fileAdvancedFinder(".java", "src", in);
+        List<String> out = new ArrayList<>();
+        IOStream.fileAdvancedFinder("function", "src/main/java/org/kuzne/labs/lab4", out);
+        List<String> expected = new ArrayList<>();
+        Collections.addAll(expected, "/Users/test/Programming/JavaDevelopment/IdeaProjects/YAMPI/src/main/java/org/kuzne/labs/lab4/function", "/Users/test/Programming/JavaDevelopment/IdeaProjects/YAMPI/src/main/java/org/kuzne/labs/lab4/functional");
+        assertEquals(expected, out);
+    }
+
+    @Test
+    void fileAdvancedFinder_2() throws IOException {
+        List<String> out = new ArrayList<>();
+        IOStream.fileAdvancedFinder("Function", "src/main", out);
+        List<String> expected = new ArrayList<>();
+        Collections.addAll(expected,
+                "/Users/test/Programming/JavaDevelopment/IdeaProjects/YAMPI/src/main/java/org/kuzne/labs/lab4/function/ExponentialFunction.java",
+                    "/Users/test/Programming/JavaDevelopment/IdeaProjects/YAMPI/src/main/java/org/kuzne/labs/lab4/function/LinearFunction.java",
+                    "/Users/test/Programming/JavaDevelopment/IdeaProjects/YAMPI/src/main/java/org/kuzne/labs/lab4/function/SineFunction.java",
+                    "/Users/test/Programming/JavaDevelopment/IdeaProjects/YAMPI/src/main/java/org/kuzne/labs/lab4/function/RatioFunction.java",
+                    "/Users/test/Programming/JavaDevelopment/IdeaProjects/YAMPI/src/main/java/org/kuzne/labs/lab4/function/Function.java",
+                    "/Users/test/Programming/JavaDevelopment/IdeaProjects/YAMPI/src/main/java/org/kuzne/labs/lab4/functional/DefiniteIntegralFunctional.java",
+                    "/Users/test/Programming/JavaDevelopment/IdeaProjects/YAMPI/src/main/java/org/kuzne/labs/lab4/functional/SegmentFunctional.java",
+                    "/Users/test/Programming/JavaDevelopment/IdeaProjects/YAMPI/src/main/java/org/kuzne/labs/lab4/functional/Functional.java"
+        );
+        assertEquals(expected, out);
+    }
+
+    @Test
+    void fileAdvancedFinder_3() throws IOException {
+        List<String> out = new ArrayList<>();
+        IOStream.fileAdvancedFinder(".txt", "src", out);
+        List<String> expected = new ArrayList<>();
+        Collections.addAll(expected,
+                "/Users/test/Programming/JavaDevelopment/IdeaProjects/YAMPI/src/main/java/org/kuzne/labs/lab6/test.txt",
+        "/Users/test/Programming/JavaDevelopment/IdeaProjects/YAMPI/src/main/java/org/kuzne/labs/lab7/PersonStreamAPI.txt",
+        "/Users/test/Programming/JavaDevelopment/IdeaProjects/YAMPI/src/main/java/org/kuzne/labs/lab7/House.txt",
+        "/Users/test/Programming/JavaDevelopment/IdeaProjects/YAMPI/src/main/java/org/kuzne/labs/lab7/regexFiles.txt",
+        "/Users/test/Programming/JavaDevelopment/IdeaProjects/YAMPI/src/main/java/org/kuzne/labs/lab7/HouseJackson1.txt",
+        "/Users/test/Programming/JavaDevelopment/IdeaProjects/YAMPI/src/main/java/org/kuzne/labs/lab7/lab7.txt",
+        "/Users/test/Programming/JavaDevelopment/IdeaProjects/YAMPI/src/main/java/org/kuzne/labs/lab7/HouseJackson2.txt",
+        "/Users/test/Programming/JavaDevelopment/IdeaProjects/YAMPI/src/main/java/org/kuzne/labs/lab7/FlatStreamAPI.txt",
+        "/Users/test/Programming/JavaDevelopment/IdeaProjects/YAMPI/src/main/java/org/kuzne/labs/lab7/HouseStreamAPI.txt"
+                );
+        assertEquals(expected, out);
     }
 }
