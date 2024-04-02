@@ -19,11 +19,11 @@ public class HouseSerializerWithStreamingAPI {
         gen.writeNumberField("cadastralNumber", house.getCadastralNumber());
         gen.writeStringField("adress", house.getAdress());
         gen.writeFieldName("houseElder");
-        gen.writeString(PersonSerializerWithStreamingAPI.serialize(house.getHouseElder()));
+        gen.writeRawValue(PersonSerializerWithStreamingAPI.serialize(house.getHouseElder()));
         gen.writeFieldName("flatList");
         gen.writeStartArray();
         for (Flat flat : house.getFlatList()) {
-            gen.writeString(FlatSerializerWithStreamingAPI.serialize(flat));
+            gen.writeRawValue(FlatSerializerWithStreamingAPI.serialize(flat));
         }
         gen.writeEndArray();
         gen.writeEndObject();
@@ -89,7 +89,7 @@ public class HouseSerializerWithStreamingAPI {
                 }
                 while (parser.nextToken() != JsonToken.END_ARRAY) {
                     fieldname = parser.getCurrentName();
-                    if (parser.nextToken() != JsonToken.START_OBJECT) {
+                    if (parser.currentToken() != JsonToken.START_OBJECT) {
                         throw new SampleParserException("Token { not found");
                     }
                     while (parser.nextToken() != JsonToken.END_OBJECT) {
@@ -107,7 +107,7 @@ public class HouseSerializerWithStreamingAPI {
                             }
                             while (parser.nextToken() != JsonToken.END_ARRAY) {
                                 fieldname = parser.getCurrentName();
-                                if (parser.nextToken() != JsonToken.START_OBJECT) {
+                                if (parser.currentToken() != JsonToken.START_OBJECT) {
                                     throw new SampleParserException("Token { not found");
                                 }
                                 while (parser.nextToken() != JsonToken.END_OBJECT) {

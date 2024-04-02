@@ -20,7 +20,7 @@ public class FlatSerializerWithStreamingAPI {
         gen.writeFieldName("owners");
         gen.writeStartArray();
         for (Person owner : flat.getOwners()) {
-            gen.writeString(PersonSerializerWithStreamingAPI.serialize(owner));
+            gen.writeRawValue(PersonSerializerWithStreamingAPI.serialize(owner));
         }
         gen.writeEndArray();
         gen.writeEndObject();
@@ -29,8 +29,6 @@ public class FlatSerializerWithStreamingAPI {
     }
 
     public static Flat deserialize(File file) throws IOException, SampleParserException {
-
-        JsonToken wrongToken;
 
         int number = 0;
         int square = 0;
@@ -57,16 +55,11 @@ public class FlatSerializerWithStreamingAPI {
                 square = parser.getIntValue();
             } else if ("owners".equals(fieldname)) {
                 owners = new ArrayList<>();
-                wrongToken = parser.currentToken();
                 if (parser.nextToken() != JsonToken.START_ARRAY) {
-                    wrongToken = parser.currentToken();
                     throw new SampleParserException("Token [ not found");
                 }
                 while (parser.nextToken() != JsonToken.END_ARRAY) {
-                    wrongToken = parser.currentToken();
-                    fieldname = parser.getCurrentName();
                     if (parser.currentToken() != JsonToken.START_OBJECT) {
-                        wrongToken = parser.currentToken();
                         throw new SampleParserException("Token { not found");
                     }
                     while (parser.nextToken() != JsonToken.END_OBJECT) {

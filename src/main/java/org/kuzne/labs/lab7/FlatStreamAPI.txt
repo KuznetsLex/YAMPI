@@ -1,1 +1,1 @@
-{"number":1,"square":100,"owners":["{\"fullName\":\"surname1 name1 patronimic1\",\"birthDate\":\"01.01.2024\"}","{\"fullName\":\"surname2 name2 patronimic2\",\"birthDate\":\"02.01.2024\"}"]}
+{"number":1,"square":100,"owners":[{"fullName":"surname1 name1 patronimic1","birthDate":"01.01.2024"},{"fullName":"surname2 name2 patronimic2","birthDate":"02.01.2024"}]}
