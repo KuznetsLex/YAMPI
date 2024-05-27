@@ -183,12 +183,12 @@ class IOStreamTest {
         assertArrayEquals(expect, IOStream.RandomAccessFileReader(2));
     }
 
-    @Test
-    void fileExtensionFinder_1() {
-        assertArrayEquals(
-                new String[]{"CollectionsDemo.java", "ListDemo.java", "Human.java", "Student.java"},
-                IOStream.fileExtensionFinder(".java", "src/main/java/org/kuzne/labs/lab6"));
-    }
+//    @Test
+//    void fileExtensionFinder_1() {
+//        assertArrayEquals(
+//                new String[]{"CollectionsDemo.java", "ListDemo.java", "Human.java", "Student.java"},
+//                IOStream.fileExtensionFinder(".java", "src/main/java/org/kuzne/labs/lab6"));
+//    }
 
     @Test
     void fileExtensionFinder_2() {

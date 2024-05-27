@@ -27,6 +27,8 @@ public class Human {
         return fathername;
     }
 
+    public String getFullName() { return surname + " " + name + " " + fathername; }
+
     public int getAge() {
         return age;
     }

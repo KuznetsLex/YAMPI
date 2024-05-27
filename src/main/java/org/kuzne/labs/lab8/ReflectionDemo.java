@@ -30,22 +30,33 @@ public class ReflectionDemo {
     public static <T> List<String> getSuperClasses(T obj) {
         List<String> superClasses = new ArrayList<>();
         Class<?> currentClass = obj.getClass();
-        while (!currentClass.getSuperclass().getSimpleName().equals("Object")) {
-            superClasses.add(currentClass.getSuperclass().getSimpleName());
+        while (currentClass.getSuperclass() != null) {
             currentClass = currentClass.getSuperclass();
+            superClasses.add(currentClass.getSimpleName());
         }
-        superClasses.add("Object");
         Collections.sort(superClasses);
         return superClasses;
     }
 
+//    public static <T> int countImplementations(List<T> list) {
+//        int count = 0;
+//        for (T obj : list) {
+//            for (Class<?> interf : obj.getClass().getInterfaces()) {
+//                if (interf.getSimpleName().equals("Executable")) {
+//                    ((Executable) obj).execute();
+//                    count++;
+//                }
+//            }
+//        }
+//        return count;
+//    }
+
     public static <T> int countImplementations(List<T> list) {
         int count = 0;
         for (T obj : list) {
-            for (Class<?> interf : obj.getClass().getInterfaces()) {
-                if (interf.getSimpleName().equals("Executable")) {
-                    count++;
-                }
+            if (obj instanceof Executable) {
+                ((Executable) obj).execute();
+                count++;
             }
         }
         return count;

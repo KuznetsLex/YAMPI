@@ -63,4 +63,20 @@ public class CollectionsDemo {
         }
         return mapAgeToPeople;
     }
+
+    public static Map<Integer, Map<Character, List<Human>>> getMapByAgeAndFirstChar (Set<Human> humanSet){
+        Map<Integer, Map<Character, List<Human>>> newMap = new HashMap<>();
+
+        for (Human human : humanSet){
+            Map<Character,List<Human>> humanMap = newMap.getOrDefault(human.getAge(), new HashMap<>());
+            List<Human> humanList = humanMap.getOrDefault(human.getSurname().charAt(0), new ArrayList<>());
+
+            humanList.add(human);
+            humanMap.put(human.getSurname().charAt(0), humanList);
+
+            newMap.put(human.getAge(), humanMap);
+        }
+
+        return newMap;
+    }
 }

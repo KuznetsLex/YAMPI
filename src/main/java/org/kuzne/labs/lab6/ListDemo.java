@@ -1,9 +1,6 @@
 package org.kuzne.labs.lab6;
 
-import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
+import java.util.*;
 
 public class ListDemo {
     public static List<Human> sameSurnameFilter(List<Human> originList, Human template) {
@@ -42,5 +39,21 @@ public class ListDemo {
             }
         }
         return maxAgeSet;
+    }
+
+    public static List<Human> sortHuman(Set<? extends Human> humans) {
+        Set<Human> sortedSet = new TreeSet<>(new Comparator<Human>() {
+            @Override
+            public int compare(Human o1, Human o2) {
+                int compareNames = o1.getFullName().compareTo(o2.getFullName());
+                if (compareNames != 0) {
+                    return compareNames;
+                } else {
+                    return o1.getAge() - (o2.getAge());
+                }
+            }
+        });
+        sortedSet.addAll(humans);
+        return new ArrayList<>(sortedSet);
     }
 }

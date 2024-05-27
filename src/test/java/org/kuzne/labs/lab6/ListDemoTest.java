@@ -151,4 +151,24 @@ class ListDemoTest {
         Set<Human> expectedSet = new HashSet<>();
         assertEquals(expectedSet, ListDemo.maxAge(listOfPeople));
     }
+
+    @Test
+    void sortHuman() {
+        Set<Human> humanSet = new HashSet<>();
+        Human human1 = new Human("Кузнецов", "Алексей", "Борисович", 19);
+        Human human2 = new Human("Артём", "Иванов", "Ефремович", 33);
+        Human human3 = new Human("Деришева", "Екатерина", "Максимовна", 20);
+
+
+        humanSet.add(human1);
+        humanSet.add(human2);
+        humanSet.add(human3);
+
+        List<Human> expectedList = new ArrayList<>();
+        expectedList.add(human2);
+        expectedList.add(human3);
+        expectedList.add(human1);
+
+        assertEquals(expectedList, ListDemo.sortHuman(humanSet));
+    }
 }

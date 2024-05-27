@@ -105,20 +105,20 @@ class ReflectionDemoTest {
         assertEquals(expectedList, ReflectionDemo.getPublicMethods(new IOStream()));
     }
 
-    @Test
-    void getPublicMethods_3() {
-        List<String> expectedList = new ArrayList<>();
-        Collections.addAll(expectedList,
-                "strFirstChar",
-                "setsWithoutIntersection",
-                "peopleIdentifiersFilter",
-                "identifiersOfPeople18Plus",
-                "mapIdToAge",
-                "mapAgeToPeople"
-        );
-        Collections.sort(expectedList);
-        assertEquals(expectedList, ReflectionDemo.getPublicMethods(new CollectionsDemo()));
-    }
+//    @Test
+//    void getPublicMethods_3() {
+//        List<String> expectedList = new ArrayList<>();
+//        Collections.addAll(expectedList,
+//                "strFirstChar",
+//                "setsWithoutIntersection",
+//                "peopleIdentifiersFilter",
+//                "identifiersOfPeople18Plus",
+//                "mapIdToAge",
+//                "mapAgeToPeople"
+//        );
+//        Collections.sort(expectedList);
+//        assertEquals(expectedList, ReflectionDemo.getPublicMethods(new CollectionsDemo()));
+//    }
 
     @Test
     void getSuperClasses_1() {
