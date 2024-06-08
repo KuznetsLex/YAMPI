@@ -155,19 +155,22 @@ class ListDemoTest {
     @Test
     void sortHuman() {
         Set<Human> humanSet = new HashSet<>();
-        Human human1 = new Human("Кузнецов", "Алексей", "Борисович", 19);
+        Student human1 = new Student("Кузнецов", "Алексей", "Борисович", 19, "FCTK");
         Human human2 = new Human("Артём", "Иванов", "Ефремович", 33);
         Human human3 = new Human("Деришева", "Екатерина", "Максимовна", 20);
+        Student human4 = new Student("Кузнецов", "Андрей", "Борисович", 20, "FCTK");
 
 
         humanSet.add(human1);
         humanSet.add(human2);
+        humanSet.add(human4);
         humanSet.add(human3);
 
         List<Human> expectedList = new ArrayList<>();
         expectedList.add(human2);
         expectedList.add(human3);
         expectedList.add(human1);
+        expectedList.add(human4);
 
         assertEquals(expectedList, ListDemo.sortHuman(humanSet));
     }

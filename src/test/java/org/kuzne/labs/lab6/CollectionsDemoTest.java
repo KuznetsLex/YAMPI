@@ -238,39 +238,43 @@ class CollectionsDemoTest {
         assertEquals(expectedMap, CollectionsDemo.mapAgeToPeople(peopleSet));
     }
 
+
     @Test
     void getMapByAgeAndFirstChar1(){
-        Human human1 = new Human("Кузнецов", "Алексей", "Борисович", 25);
+        Human human1 = new Human("Kузнецов", "Алексей", "Борисович", 25);
         Human human2 = new Human("Fдеришева", "Екатерина", "Максимовна", 23);
         Human human3 = new Human("FirstName", "SecondName", "ThirdName", 23);
-        Human human4 = new Human("К8", "2", "3", 25);
-
+        Human human4 = new Human("K8", "2", "3", 25);
+        Human human5 = new Human("Aлексеев", "Алексей", "Борисович", 25);
         Set<Human> humanSet = new HashSet<>();
         humanSet.add(human1);
         humanSet.add(human2);
         humanSet.add(human3);
         humanSet.add(human4);
+        humanSet.add(human5);
 
+        List<Human> human25yoStartsWithA = new ArrayList<>();
+        human25yoStartsWithA.add(human5);
         List<Human> human25yoStartsWithK = new ArrayList<>();
-        human25yoStartsWithK.add(human1);
-        human25yoStartsWithK.add(human4);
+        human25yoStartsWithK.add(human4); // пришлось поменять местами эту строчку
+        human25yoStartsWithK.add(human1); // и эту
 
-        Map<Character, List<Human>> map25K = new HashMap<>();
-        map25K.put('К', human25yoStartsWithK);
+        Map<Character, List<Human>> map25 = new HashMap<>();
+        map25.put('K', human25yoStartsWithK);
+        map25.put('A', human25yoStartsWithA);
 
         List<Human> human23yoStartsWithF = new ArrayList<>();
         human23yoStartsWithF.add(human3);
         human23yoStartsWithF.add(human2);
 
-
-        Map<Character, List<Human>> map23F = new HashMap<>();
-        map23F.put('F', human23yoStartsWithF);
+        Map<Character, List<Human>> map23 = new HashMap<>();
+        map23.put('F', human23yoStartsWithF);
 
 
         Map<Integer, Map<Character, List<Human>>> expectedMap = new HashMap<>();
-        expectedMap.put(25, map25K);
-        expectedMap.put(23, map23F);
-
+        expectedMap.put(25, map25);
+        expectedMap.put(23, map23);
         assertEquals(expectedMap,CollectionsDemo.getMapByAgeAndFirstChar(humanSet));
     }
+
 }

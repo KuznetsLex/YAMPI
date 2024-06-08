@@ -52,13 +52,22 @@ public class Human {
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        Human human = (Human) o;
+        if (!(o instanceof Human human)) return false;
         return age == human.age && Objects.equals(surname, human.surname) && Objects.equals(name, human.name) && Objects.equals(fathername, human.fathername);
     }
 
     @Override
     public int hashCode() {
         return Objects.hash(surname, name, fathername, age);
+    }
+
+    @Override
+    public String toString() {
+        return "Human{" +
+                "surname='" + surname + '\'' +
+                ", name='" + name + '\'' +
+                ", fathername='" + fathername + '\'' +
+                ", age=" + age +
+                '}';
     }
 }

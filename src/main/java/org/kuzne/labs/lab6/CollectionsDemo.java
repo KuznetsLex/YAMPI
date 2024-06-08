@@ -64,6 +64,8 @@ public class CollectionsDemo {
         return mapAgeToPeople;
     }
 
+
+    // TASK 11
     public static Map<Integer, Map<Character, List<Human>>> getMapByAgeAndFirstChar (Set<Human> humanSet){
         Map<Integer, Map<Character, List<Human>>> newMap = new HashMap<>();
 

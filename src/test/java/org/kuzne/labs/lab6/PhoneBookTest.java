@@ -74,6 +74,6 @@ class PhoneBookTest {
         Map<Human, List<String>> expectedMap = new HashMap<>();
         expectedMap.put(human1, testList);
 
-        assertEquals(expectedMap, phoneBook.findPeopleByName("Кузнецов"));
+        assertEquals(expectedMap, phoneBook.findPeopleByName("Кузнец"));
     }
 }

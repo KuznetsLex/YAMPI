@@ -41,16 +41,15 @@ public class ListDemo {
         return maxAgeSet;
     }
 
-    public static List<Human> sortHuman(Set<? extends Human> humans) {
-        Set<Human> sortedSet = new TreeSet<>(new Comparator<Human>() {
-            @Override
-            public int compare(Human o1, Human o2) {
-                int compareNames = o1.getFullName().compareTo(o2.getFullName());
-                if (compareNames != 0) {
-                    return compareNames;
-                } else {
-                    return o1.getAge() - (o2.getAge());
-                }
+
+    // TASK 6
+    public static <T extends Human> List<T> sortHuman(Set<T> humans) {
+        Set<T> sortedSet = new TreeSet<>((o1, o2) -> {
+            int compareNames = o1.getFullName().compareTo(o2.getFullName());
+            if (compareNames != 0) {
+                return compareNames;
+            } else {
+                return o1.getAge() - (o2.getAge());
             }
         });
         sortedSet.addAll(humans);
